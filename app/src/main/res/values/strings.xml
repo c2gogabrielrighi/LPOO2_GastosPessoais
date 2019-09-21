@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Gestao de Gastos Pessoais</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="editData">Data</string>
+    <string name="editDescricao">Descrição do valor</string>
+    <string name="editValor">Valor</string>
+    <string name="radioRenda">Renda</string>
+    <string name="radioDespesa">Despesa</string>
+
+</resources>
