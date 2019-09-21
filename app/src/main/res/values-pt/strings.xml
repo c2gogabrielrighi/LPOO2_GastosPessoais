@@ -1,11 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Gestão de Gastos Pessoais</string>
     <string name="action_settings">Configurações</string>
-
     <string name="editData">Data</string>
     <string name="editDescricao">Descrição do valor</string>
     <string name="editValor">Valor</string>
-    <string name="radioRenda">Renda</string>
     <string name="radioDespesa">Despesa</string>
-
+    <string name="radioRenda">Renda</string>
 </resources>
