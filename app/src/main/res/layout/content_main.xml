@@ -79,19 +79,18 @@
         app:layout_constraintStart_toStartOf="@+id/textSaida"
         app:layout_constraintTop_toBottomOf="@+id/textSaida" />
 
-    <GridView
+    <ListView
         android:id="@+id/grid"
         android:layout_width="0dp"
-        android:layout_height="394dp"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:columnWidth="100dp"
-        android:gravity="center"
-        android:horizontalSpacing="10dp"
-        android:numColumns="auto_fit"
-        android:orientation="vertical"
-        android:stretchMode="columnWidth"
-        android:verticalSpacing="10dp"
+        android:layout_marginBottom="8dp"
+        android:divider="#777777"
+        android:dividerHeight="1dp"
+        android:listSelector="#aaaaaa"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textSaidaDescricao" />

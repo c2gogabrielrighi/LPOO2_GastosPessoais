@@ -54,7 +54,7 @@ public class RegistrosDAO {
         Cursor cur = db.rawQuery("SELECT SUM(valor) FROM Registros", null);
         if(cur.moveToFirst())
         {
-            return cur.getInt(0);
+            return cur.getFloat(0);
         }
         return Float.valueOf("0.0");
     }
@@ -63,7 +63,7 @@ public class RegistrosDAO {
         Cursor cur = db.rawQuery("SELECT SUM(valor) FROM Registros WHERE tipo = 0", null);
         if(cur.moveToFirst())
         {
-            return cur.getInt(0);
+            return cur.getFloat(0);
         }
         return Float.valueOf("0.0");
     }
@@ -72,7 +72,7 @@ public class RegistrosDAO {
         Cursor cur = db.rawQuery("SELECT SUM(valor) FROM Registros WHERE tipo = 1", null);
         if(cur.moveToFirst())
         {
-            return cur.getInt(0);
+            return cur.getFloat(0);
         }
         return Float.valueOf("0.0");
     }
@@ -82,7 +82,7 @@ public class RegistrosDAO {
         Cursor cursor;
         String[] campos={DbHelper.C_ID, DbHelper.C_DATA, DbHelper.C_DESCRICAO,DbHelper.C_TIPO,DbHelper.C_VALOR};
         db= banco.getReadableDatabase();
-        cursor = db.query(DbHelper.TABLE,campos,null,null,null,null,null);
+        cursor = db.query(DbHelper.TABLE,campos,null,null,null,null,DbHelper.C_DATA + " DESC");
         if (cursor!=null){
             cursor.moveToFirst();
             while (cursor.moveToNext()){

@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.GridView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<Registros> myRegistros = registrosDAO.list();
         final RegistrosAdapter adapter = new RegistrosAdapter(this,myRegistros);
 
-        GridView grid = findViewById(R.id.grid);
+        ListView grid = findViewById(R.id.grid);
         grid.setAdapter(adapter);
 
         float saldo = registrosDAO.getSaldo();

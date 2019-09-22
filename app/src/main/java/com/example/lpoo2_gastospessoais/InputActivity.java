@@ -1,6 +1,7 @@
 package com.example.lpoo2_gastospessoais;
 import android.app.DatePickerDialog;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.renderscript.ScriptGroup;
 import android.text.InputType;
@@ -70,6 +71,8 @@ public class InputActivity extends AppCompatActivity {
                 RegistrosDAO registrosDAO = new RegistrosDAO(getBaseContext());
                 String msg = registrosDAO.save(registro);
                 Toast.makeText(getBaseContext(),msg,Toast.LENGTH_LONG).show();
+
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
             }
         });
     }
