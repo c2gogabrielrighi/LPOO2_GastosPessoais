@@ -37,12 +37,6 @@ public class MainActivity extends AppCompatActivity {
 
         RegistrosDAO registrosDAO = new RegistrosDAO(getBaseContext());
 
-        ArrayList<Registros> myRegistros = registrosDAO.list();
-        final RegistrosAdapter adapter = new RegistrosAdapter(this,myRegistros);
-
-        ListView grid = findViewById(R.id.grid);
-        grid.setAdapter(adapter);
-
         float saldo = registrosDAO.getSaldo();
         TextView textSaldo = findViewById(R.id.textSaldo);
         textSaldo.setText(String.valueOf(saldo));
@@ -54,6 +48,12 @@ public class MainActivity extends AppCompatActivity {
         float saida = registrosDAO.getSaida();
         TextView textSaida = findViewById(R.id.textSaida);
         textSaida.setText(String.valueOf(saida));
+
+        ArrayList<Registros> myRegistros = registrosDAO.list();
+        final RegistrosAdapter adapter = new RegistrosAdapter(this,myRegistros);
+
+        ListView grid = findViewById(R.id.grid);
+        grid.setAdapter(adapter);
 
     }
 
