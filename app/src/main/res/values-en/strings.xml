@@ -7,4 +7,9 @@
     <string name="editValor">Value</string>
     <string name="radioDespesa">Outcome</string>
     <string name="radioRenda">Income</string>
+    <string name="buttonIncluir">Insert</string>
+    <string name="textSaldoDescricao">Current balance</string>
+    <string name="textEntradaDescricao">Income</string>
+    <string name="textSaidaDescricao">Outcome</string>
+    <string name="textSaldo">0.00</string>
 </resources>

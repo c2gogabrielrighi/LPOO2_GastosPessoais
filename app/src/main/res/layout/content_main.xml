@@ -8,75 +8,74 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <EditText
-        android:id="@+id/editData"
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/textSaldo"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:inputType="date"
-        android:hint="@string/editData"
-        tools:layout_editor_absoluteX="38dp"
-        tools:layout_editor_absoluteY="249dp"
+        android:text="@string/textSaldo"
+        android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editDescricao"
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/textSaldoDescricao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/textSaldoDescricao"
+        app:layout_constraintEnd_toEndOf="@+id/textSaldo"
+        app:layout_constraintStart_toStartOf="@+id/textSaldo"
+        app:layout_constraintTop_toBottomOf="@+id/textSaldo" />
+
+    <TextView
+        android:id="@+id/textEntrada"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="@string/editDescricao"
-        android:contentDescription="@string/editDescricao"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/textSaldo"
+        android:textColor="@color/colorEntrada"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toStartOf="@+id/textSaldoDescricao"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editData" />
+        app:layout_constraintTop_toBottomOf="@+id/textSaldoDescricao" />
 
-    <EditText
-        android:id="@+id/editValor"
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/textSaida"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:hint="@string/editValor"
-        android:contentDescription="@string/editValor"
+        android:text="@string/textSaldo"
+        android:textColor="@color/colorSaida"
+        android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editDescricao" />
+        app:layout_constraintStart_toEndOf="@+id/textSaldoDescricao"
+        app:layout_constraintTop_toBottomOf="@+id/textSaldoDescricao" />
 
-    <RadioGroup
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/textEntradaDescricao"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editValor">
+        android:text="@string/textEntradaDescricao"
+        app:layout_constraintEnd_toEndOf="@+id/textEntrada"
+        app:layout_constraintStart_toStartOf="@+id/textEntrada"
+        app:layout_constraintTop_toBottomOf="@+id/textEntrada" />
 
-        <RadioButton
-            android:id="@+id/radioRenda"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/radioRenda" />
-
-        <RadioButton
-            android:id="@+id/radioDespesa"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="@string/radioDespesa" />
-    </RadioGroup>
-
+    <TextView
+        android:id="@+id/textSaidaDescricao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/textSaidaDescricao"
+        app:layout_constraintEnd_toEndOf="@+id/textSaida"
+        app:layout_constraintStart_toStartOf="@+id/textSaida"
+        app:layout_constraintTop_toBottomOf="@+id/textSaida" />
 </androidx.constraintlayout.widget.ConstraintLayout>

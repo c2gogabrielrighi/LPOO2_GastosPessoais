@@ -7,5 +7,10 @@
     <string name="editValor">Valor</string>
     <string name="radioRenda">Renda</string>
     <string name="radioDespesa">Despesa</string>
+    <string name="buttonIncluir">Incluir</string>
+    <string name="textSaldoDescricao">Saldo atual</string>
+    <string name="textSaldo">0.00</string>
+    <string name="textEntradaDescricao">Entrada</string>
+    <string name="textSaidaDescricao">Saida</string>
 
 </resources>
