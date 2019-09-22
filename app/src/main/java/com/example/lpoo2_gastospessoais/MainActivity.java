@@ -11,6 +11,10 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.GridView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,6 +33,27 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(it);
             }
         });
+
+        RegistrosDAO registrosDAO = new RegistrosDAO(getBaseContext());
+
+        ArrayList<Registros> myRegistros = registrosDAO.list();
+        final RegistrosAdapter adapter = new RegistrosAdapter(this,myRegistros);
+
+        GridView grid = findViewById(R.id.grid);
+        grid.setAdapter(adapter);
+
+        float saldo = registrosDAO.getSaldo();
+        TextView textSaldo = findViewById(R.id.textSaldo);
+        textSaldo.setText(String.valueOf(saldo));
+
+        float entrada = registrosDAO.getEntrada();
+        TextView textEntrada = findViewById(R.id.textEntrada);
+        textEntrada.setText(String.valueOf(entrada));
+
+        float saida = registrosDAO.getSaida();
+        TextView textSaida = findViewById(R.id.textSaida);
+        textSaida.setText(String.valueOf(saida));
+
     }
 
     @Override
