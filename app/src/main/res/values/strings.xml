@@ -15,11 +15,6 @@
 
     <string name="msgExclusao">Exclusão</string>
     <string name="msgExclusaoConfirma">Deseja excluir?</string>
-
-    <string name="msgSim">Sim</string>
-    <string name="msgNao">Não</string>
-    <string name="msgExclusao">Exclusão</string>
-    <string name="msgExclusaoConfirma">Deseja excluir?</string>
     <string name="msgNao">Não</string>
     <string name="msgSim">Sim</string>
 </resources>
