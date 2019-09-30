@@ -66,7 +66,7 @@ public class InputActivity extends AppCompatActivity {
                 int radioSelectedId = radioGroup.getCheckedRadioButtonId();
                 radioButton = (RadioButton) findViewById(radioSelectedId);
 
-                DbHelper db = new DbHelper(getBaseContext());
+                //DbHelper db = new DbHelper(getBaseContext());
                 Registros registro = new Registros(editData.getText().toString(),Integer.valueOf(radioButton.getTag().toString()),editDescricao.getText().toString(),Float.valueOf(editValor.getText().toString()));
                 RegistrosDAO registrosDAO = new RegistrosDAO(getBaseContext());
                 String msg = registrosDAO.save(registro);

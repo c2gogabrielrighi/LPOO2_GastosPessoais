@@ -1,6 +1,7 @@
 package com.example.lpoo2_gastospessoais;
 
 import android.content.Intent;
+import android.database.DataSetObserver;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -19,12 +20,25 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    TextView textSaldo;
+    TextView textEntrada;
+    TextView textSaida;
+    RegistrosDAO registrosDAO;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        DbHelper db = new DbHelper(getBaseContext());
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        textSaldo = findViewById(R.id.textSaldo);
+        textEntrada = findViewById(R.id.textEntrada);
+        textSaida = findViewById(R.id.textSaida);
+
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -34,27 +48,42 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(it);
             }
         });
-
-        RegistrosDAO registrosDAO = new RegistrosDAO(getBaseContext());
-
-        float saldo = registrosDAO.getSaldo();
-        TextView textSaldo = findViewById(R.id.textSaldo);
-        textSaldo.setText(String.valueOf(saldo));
-
-        float entrada = registrosDAO.getEntrada();
-        TextView textEntrada = findViewById(R.id.textEntrada);
-        textEntrada.setText(String.valueOf(entrada));
-
-        float saida = registrosDAO.getSaida();
-        TextView textSaida = findViewById(R.id.textSaida);
-        textSaida.setText(String.valueOf(saida));
-
+        registrosDAO = new RegistrosDAO(getBaseContext());
         ArrayList<Registros> myRegistros = registrosDAO.list();
         final RegistrosAdapter adapter = new RegistrosAdapter(this,myRegistros);
+        atualizaTotais();
+
+
+        //float saldo = registrosDAO.getSaldo();
+        //textSaldo = findViewById(R.id.textSaldo);
+        //textSaldo.setText(String.valueOf(saldo));
+
+        //float entrada = registrosDAO.getEntrada();
+        //textEntrada = findViewById(R.id.textEntrada);
+        //textEntrada.setText(String.valueOf(entrada));
+
+        //float saida = registrosDAO.getSaida();
+        //textSaida = findViewById(R.id.textSaida);
+        //textSaida.setText(String.valueOf(saida));
 
         ListView grid = findViewById(R.id.grid);
         grid.setAdapter(adapter);
+        adapter.registerDataSetObserver(observer);
 
+    }
+
+    DataSetObserver observer = new DataSetObserver() {
+        @Override
+        public void onChanged() {
+            super.onChanged();
+            atualizaTotais();
+        }
+    };
+
+    public void atualizaTotais(){
+        textSaldo.setText(String.valueOf(registrosDAO.getSaldo()));
+        textEntrada.setText(String.valueOf(registrosDAO.getEntrada()));
+        textSaida.setText(String.valueOf(registrosDAO.getSaida()));
     }
 
     @Override

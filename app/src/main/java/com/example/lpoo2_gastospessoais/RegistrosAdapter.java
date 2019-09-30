@@ -1,6 +1,9 @@
 package com.example.lpoo2_gastospessoais;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,15 +15,26 @@ import org.w3c.dom.Text;
 
 import java.util.List;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 public class RegistrosAdapter extends ArrayAdapter {
+    private List<Registros> list;
+    private Context context;
+
     public RegistrosAdapter( Context context,  List<Registros> objects) {
         super(context, 0, objects);
+        this.list = objects;
+        this.context = context;
     }
 
-    public View getView(int position, View convertView, ViewGroup parent){
-        View listItemView =convertView;
+    public View getView(final int position, final View convertView, ViewGroup parent){
+        View listItemView = convertView;
 
-        Registros current = (Registros) getItem(position);
+        if(listItemView==null) {
+            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.list_registro, parent, false);
+        }
+
+        final Registros current = (Registros) getItem(position);
         TextView textId = (TextView) listItemView.findViewById(R.id.textId);
         TextView data = (TextView) listItemView.findViewById(R.id.textData);
         TextView descricao = (TextView) listItemView.findViewById(R.id.textDescricao);
@@ -30,10 +44,26 @@ public class RegistrosAdapter extends ArrayAdapter {
         descricao.setText(current.getDescricao().toString());
         valor.setText(String.valueOf(current.getValor()));
 
+        final RegistrosDAO registrosDAO = new RegistrosDAO(getContext());
+
         ImageButton btnDelete = (ImageButton) listItemView.findViewById(R.id.btnDelete);
         btnDelete.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                AlertDialog dialog = new AlertDialog.Builder(getContext())
+                        .setTitle("Exclusão")
+                        .setMessage("Excluir registro?")
+                        .setNegativeButton("Não",null)
+                        .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                registrosDAO.deletar(current);
+                                list.remove(position);
+                                notifyDataSetChanged();
+                            }
+                        })
+                        .create();
+                dialog.show();
 
             }
         });
@@ -45,10 +75,6 @@ public class RegistrosAdapter extends ArrayAdapter {
 
             }
         });
-
-        if(listItemView==null) {
-            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.list_registro, parent, false);
-        }
 
         return listItemView;
 

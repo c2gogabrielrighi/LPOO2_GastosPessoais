@@ -51,30 +51,36 @@ public class RegistrosDAO {
     }
 
     public float getSaldo(){
-        Cursor cur = db.rawQuery("SELECT SUM(valor) FROM Registros", null);
-        if(cur.moveToFirst())
-        {
-            return cur.getFloat(0);
+        Cursor cursor;
+        db = banco.getReadableDatabase();
+        cursor = db.rawQuery("SELECT SUM(valor) FROM Registros", null);
+        if (cursor.moveToFirst()) {
+            return cursor.getFloat(0);
+        }else{
+            return Float.valueOf(0);
         }
-        return Float.valueOf("0.0");
     }
 
     public float getEntrada(){
-        Cursor cur = db.rawQuery("SELECT SUM(valor) FROM Registros WHERE tipo = 0", null);
-        if(cur.moveToFirst())
-        {
-            return cur.getFloat(0);
+        Cursor cursor;
+        db = banco.getReadableDatabase();
+        cursor = db.rawQuery("SELECT SUM(valor) FROM Registros WHERE tipo = 0", null);
+        if (cursor.moveToFirst()) {
+            return cursor.getFloat(0);
+        }else{
+            return Float.valueOf(0);
         }
-        return Float.valueOf("0.0");
     }
 
     public float getSaida(){
-        Cursor cur = db.rawQuery("SELECT SUM(valor) FROM Registros WHERE tipo = 1", null);
-        if(cur.moveToFirst())
-        {
-            return cur.getFloat(0);
+        Cursor cursor;
+        db = banco.getReadableDatabase();
+        cursor = db.rawQuery("SELECT SUM(valor) FROM Registros WHERE tipo = 1", null);
+        if (cursor.moveToFirst()) {
+            return cursor.getFloat(0);
+        }else{
+            return Float.valueOf(0);
         }
-        return Float.valueOf("0.0");
     }
 
     public ArrayList<Registros> list(){
@@ -84,7 +90,7 @@ public class RegistrosDAO {
         db= banco.getReadableDatabase();
         cursor = db.query(DbHelper.TABLE,campos,null,null,null,null,DbHelper.C_DATA + " DESC");
         if (cursor!=null){
-            cursor.moveToFirst();
+            //cursor.moveToFirst();
             while (cursor.moveToNext()){
                 int id= cursor.getInt(0) ;
                 String data = cursor.getString(1);
