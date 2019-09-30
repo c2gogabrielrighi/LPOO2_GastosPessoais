@@ -12,7 +12,6 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -53,19 +52,6 @@ public class MainActivity extends AppCompatActivity {
         final RegistrosAdapter adapter = new RegistrosAdapter(this,myRegistros);
         atualizaTotais();
 
-
-        //float saldo = registrosDAO.getSaldo();
-        //textSaldo = findViewById(R.id.textSaldo);
-        //textSaldo.setText(String.valueOf(saldo));
-
-        //float entrada = registrosDAO.getEntrada();
-        //textEntrada = findViewById(R.id.textEntrada);
-        //textEntrada.setText(String.valueOf(entrada));
-
-        //float saida = registrosDAO.getSaida();
-        //textSaida = findViewById(R.id.textSaida);
-        //textSaida.setText(String.valueOf(saida));
-
         ListView grid = findViewById(R.id.grid);
         grid.setAdapter(adapter);
         adapter.registerDataSetObserver(observer);
@@ -88,19 +74,13 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }

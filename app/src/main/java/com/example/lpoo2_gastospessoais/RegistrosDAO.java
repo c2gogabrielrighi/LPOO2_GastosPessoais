@@ -106,6 +106,10 @@ public class RegistrosDAO {
         return null;
     }
 
+    public void editar(Registros c){
+        db = banco.getReadableDatabase();
+    }
+
     public String deletar(Registros c){
         String where = DbHelper.C_ID+ "= " +c.getId();
         db= banco.getReadableDatabase();

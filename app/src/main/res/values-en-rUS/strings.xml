@@ -12,4 +12,10 @@
     <string name="textEntradaDescricao">Income</string>
     <string name="textSaidaDescricao">Outcome</string>
     <string name="textSaldo">0.00</string>
+
+    <string name="msgExclusao">Delete</string>
+    <string name="msgExclusaoConfirma">Are you sure?</string>
+
+    <string name="msgSim">Yes</string>
+    <string name="msgNao">No</string>
 </resources>

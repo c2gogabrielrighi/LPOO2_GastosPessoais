@@ -1,6 +1,7 @@
 package com.example.lpoo2_gastospessoais;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -51,10 +52,10 @@ public class RegistrosAdapter extends ArrayAdapter {
             @Override
             public void onClick(View v) {
                 AlertDialog dialog = new AlertDialog.Builder(getContext())
-                        .setTitle("Exclusão")
-                        .setMessage("Excluir registro?")
-                        .setNegativeButton("Não",null)
-                        .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                        .setTitle(R.string.msgExclusao)
+                        .setMessage(R.string.msgExclusaoConfirma)
+                        .setNegativeButton(R.string.msgNao,null)
+                        .setPositiveButton(R.string.msgSim, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 registrosDAO.deletar(current);
@@ -78,7 +79,5 @@ public class RegistrosAdapter extends ArrayAdapter {
 
         return listItemView;
 
-
     }
-
 }
